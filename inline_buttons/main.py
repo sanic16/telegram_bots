@@ -1,7 +1,11 @@
 from dotenv import load_dotenv
-load_dotenv()
-
 import os
+
+env_path = os.getcwd()
+
+load_dotenv(dotenv_path=env_path + '/.env')
+
+# Access environment variables
 API_KEY = os.getenv('API_KEY')
 
 import telebot
@@ -18,7 +22,7 @@ bot = telebot.TeleBot(API_KEY)
 
 N_RES_PAG = 15
 MAX_ANCHO_ROW = 8
-DIR = {'busquedas': './busquedas'}
+DIR = {'busquedas': os.getcwd()+'/busquedas/'}
 for key in DIR:
     try:
         os.mkdir(key)
@@ -46,7 +50,7 @@ def inline_buttons_response(call):
     mid = call.message.id # mensaje id 
 
     if call.data == 'laura':
-        video = open(os.path.join(os.path.abspath(os.curdir), 'video.mp4'), 'rb')
+        video = open(os.path.join(os.path.abspath(os.curdir), os.getcwd() + '/video.mp4'), 'rb')
         print(video)
         bot.send_chat_action(cid, 'upload_video')
         bot.send_video(cid, video, '*Tra te e il mare*', parse_mode='MarkdownV2')

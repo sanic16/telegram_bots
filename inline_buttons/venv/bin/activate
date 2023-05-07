@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/julio/Python/telegram_bots/inline_buttons/venv"
+VIRTUAL_ENV="/home/julio/Python/telegram_bots/telegram_bots/inline_buttons/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
